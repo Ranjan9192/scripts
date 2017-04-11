@@ -1,0 +1,45 @@
+    Jenkinsfile
+
+            Uses GROOVY Syntax
+            Uses GROOVY modules for each plugin in Jenkinsfile      
+                eg,: for git plugin, there's a git() modules
+
+            To invoke a module 
+                moduleName Argument
+                moduleName (argument1, argument2)
+                moduleName (Argumen1Name:Argument1Value, Argument2Name:Argument2Value )
+
+            git 'git-url'
+            git (url:'git-url')    
+
+            Store with filename "Jenkinsfile"
+            
+            There should be SINGLE Jenkinsfile in each project.
+            And, it SHOULD be in ROOT folder.
+
+            Loading Jenkinsfile from SCM
+            Goto Project Configuration -> Pipeline --> Choose Definition : PipelineScript from SCM
+                    Select SCM : git    
+                    Repository URL : https://github.com/<YOUR-REPO>.git
+                    Script Path : Relative path to Jenkinsfile      
+                                Default : Jenkinsfile   
+                                    Assuming Jenkinsfile is in root folder.
+        
+        SMTP Configuration:
+            REQUIRED : EMail Notification plugin
+                Requires:
+                        SMTP Server eg. smtp.gmail.com
+                        Use SSL?        true / false
+                        SMTP Port:      25-27
+                        UserName        YourEMail@provider
+                        Password        YourDamnStrongPassword
+                
+        FTP Server Configuration:
+            REQUIRED : Publish Over FTP Plugin
+            Manage Jenkins -> Global Configuration --> Add FTP Server
+                FTP Server IP or Hostname
+                FTP UserName
+                FTP Password                
+            
+            Once, Server information is SET, you can use "Publish Over FTP" as Post Build action.    
+
